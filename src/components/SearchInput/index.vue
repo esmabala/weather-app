@@ -42,7 +42,7 @@ export default {
       }
 
       axios
-        .get("http://api.openweathermap.org/data/2.5/weather", {
+        .get("https://api.openweathermap.org/data/2.5/weather", {
           params: parameters,
         })
         .then(({ data }) => {

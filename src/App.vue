@@ -1,19 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-12">
+          <h1>Weather App</h1>
+          <SearchInput @fetch-weather="handleFetchWeather"></SearchInput>
+          <WeatherDashboard :weather="weather"></WeatherDashboard>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import SearchInput from "./components/SearchInput";
+import WeatherDashboard from "./components/WeatherDashboard";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  components: { SearchInput, WeatherDashboard },
+  data() {
+    return {
+      weather: null,
+    };
+  },
+  methods: {
+    handleFetchWeather(weather) {
+      this.weather = weather;
+    },
+  },
+};
 </script>
 
 <style>
